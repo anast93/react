@@ -34,7 +34,7 @@ const makeBusiness = (director, allModule, gang, course, teacher = 'Максим
 	console.log(
 `Стартуем новый курс: ${course}. Владелец: ${director}. Преподаватель: ${teacher}. Всего уроков: ${allModule}.
 Команда Академии: ${gang}.
-Первое, что изучим будет ${data.react[0]}. Он очень похож на HTML!
+Первое, что изучим, будет ${data.react[0]}. Он очень похож на HTML!
 Технологии, которые мы изучим: ${data.react} и другие. `);
 
 };
