@@ -28,17 +28,32 @@ const Banner = styled.div`
     background-image: url(${({img}) => img});
     background-size: cover;
     background-position: center;
-    margin-bottom: 20px;
 `;
 
-const NameAndPrice = styled.div`
+const Content = styled.section`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: calc(100% - 200px); 
+    padding: 30px;
+`;
+
+const HeaderContent = styled.div`
     display: flex;
     justify-content: space-between;
-    margin-bottom: 20px;
-    padding: 0 10%;
-    font-family: Pacifico;
-    font-size: 30px;
+    font-size: 24px;
+    font-weight: 700;
+    font-family: 'Pacifico', cursive;
 `;
+
+// const NameAndPrice = styled.div`
+//     display: flex;
+//     justify-content: space-between;
+//     margin-bottom: 20px;
+//     padding: 0 10%;
+//     font-family: Pacifico;
+//     font-size: 30px;
+// `;
 
 export const ModalItem = ({ openItem, setOpenItem }) => {
 
@@ -54,12 +69,14 @@ export const ModalItem = ({ openItem, setOpenItem }) => {
         <Overlay id="overlay" onClick={closeModal}>
         <Modal>
             <Banner img={openItem.img}/>
-            <NameAndPrice>
-                <p>{openItem.name}</p>
-                <p>{openItem.price.toLocaleString('ru-RU',
-                {style: 'currency', currency: 'RUB'})}</p>
-            </NameAndPrice>
-            <AddBtn/>
+            <Content>
+                <HeaderContent>
+                    <p>{openItem.name}</p>
+                    <p>{openItem.price.toLocaleString('ru-RU',
+                    {style: 'currency', currency: 'RUB'})}</p>
+                </HeaderContent>
+            </Content>
+            <AddBtn>Добавить</AddBtn>
         </Modal>
     </Overlay>
     )

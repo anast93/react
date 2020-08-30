@@ -1,26 +1,22 @@
-import React from 'react';
 import styled from 'styled-components';
 
-const AddBtnDiv = styled.div`
-    display: flex;
-    justify-content: center;
-`;
 
-const AddBtnStyled = styled.button`
-    margin-bottom: 20px;
-    padding: 10px 50px;
-    background-color: green;
-    border: none;
-    font-family: Roboto;
-    font-size: 20px;
+export const AddBtn = styled.button`
+    display: block;
+    margin: 0 auto 20px auto;
+    width: 250px;
+    height: 65px;
+    font-size: inherit;
+    font-family: inherit;
+    background-color: #299B01;
     color: white;
+    border-color: transparent;
+    cursor: pointer;
+    transition-property: color, background-color, border-color;
+    transition-duration: .3s;
+    &:hover {
+        background-color: white;
+        color: #299B01;
+        border-color: #299B01;
+    }
 `;
-
-export const AddBtn = () => (
-    <AddBtnDiv>
-        <AddBtnStyled>
-            Добавить
-        </AddBtnStyled>
-    </AddBtnDiv>
-
-);
