@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { AddBtn } from './AddBtn';
+import { AddBtn } from '../Style/AddBtn';
 
 const Overlay = styled.div`
     position: fixed;
@@ -46,24 +46,23 @@ const HeaderContent = styled.div`
     font-family: 'Pacifico', cursive;
 `;
 
-// const NameAndPrice = styled.div`
-//     display: flex;
-//     justify-content: space-between;
-//     margin-bottom: 20px;
-//     padding: 0 10%;
-//     font-family: Pacifico;
-//     font-size: 30px;
-// `;
 
-export const ModalItem = ({ openItem, setOpenItem }) => {
+export const ModalItem = ({ openItem, setOpenItem, orders, setOrders }) => {
 
-    function closeModal(e) {
+    const closeModal = e => {
         if(e.target.id === 'overlay') {
             setOpenItem(null);
         }
-    }
+    };
 
-    if(!openItem) return null;
+    const order = {
+        ...openItem
+    };
+
+    const addToOrder = () => {
+        setOrders([...orders, order]);
+        setOpenItem(null);
+    };
 
     return (
         <Overlay id="overlay" onClick={closeModal}>
@@ -76,7 +75,7 @@ export const ModalItem = ({ openItem, setOpenItem }) => {
                     {style: 'currency', currency: 'RUB'})}</p>
                 </HeaderContent>
             </Content>
-            <AddBtn>Добавить</AddBtn>
+            <AddBtn onClick={addToOrder}>Добавить</AddBtn>
         </Modal>
     </Overlay>
     )
